@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import CommunityOtp from "./community-otp";
 
 const CITIES = [
   "Jakarta", "Bogor", "Depok", "Tangerang", "Tangerang Selatan", "Bekasi",
@@ -76,6 +77,10 @@ function FieldError({ name, errors }: { name: FieldName; errors: Errors }) {
   return errors[name] ? <p className="community-field-error" id={`${name}-error`}>{errors[name]}</p> : null;
 }
 
+function normalizePhone(value: string) {
+  return value.replace(/[\s()+-]/g, "").replace(/^0/, "62");
+}
+
 export default function CommunityForm() {
   const form = useRef<HTMLFormElement>(null);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -83,13 +88,14 @@ export default function CommunityForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [otherCity, setOtherCity] = useState(false);
   const [submission, setSubmission] = useState<Submission | null>(null);
-  const [stage, setStage] = useState<"review" | "success">("review");
+  const [stage, setStage] = useState<"review" | "otp" | "success">("review");
   const isDialogOpen = submission !== null;
 
   useEffect(() => {
     if (!submission) return;
     if (!dialog.current?.open) dialog.current?.showModal();
-    dialogHeading.current?.focus();
+    if (stage === "otp") dialog.current?.querySelector<HTMLInputElement>("#community-otp-code")?.focus();
+    else dialogHeading.current?.focus();
   }, [submission, stage]);
 
   useEffect(() => {
@@ -220,9 +226,9 @@ export default function CommunityForm() {
       onClose={() => { setSubmission(null); setStage("review"); }}
       onKeyDown={(event) => {
         if (event.key !== "Tab") return;
-        const buttons = event.currentTarget.querySelectorAll<HTMLButtonElement>("button:not(:disabled)");
-        const first = buttons[0];
-        const last = buttons[buttons.length - 1];
+        const controls = event.currentTarget.querySelectorAll<HTMLElement>("button:not(:disabled), input:not(:disabled)");
+        const first = controls[0];
+        const last = controls[controls.length - 1];
         if (!first || !last) return;
         if (event.shiftKey && (document.activeElement === first || document.activeElement === dialogHeading.current)) {
           event.preventDefault();
@@ -244,20 +250,22 @@ export default function CommunityForm() {
       <span className="community-dialog-eyebrow">DIGILAND RUN 2025</span>
       <div className={`community-dialog-icon ${stage === "success" ? "is-success" : ""}`} aria-hidden="true">
         <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          {stage === "success" ? <path d="m8 16 5 5L24 10" /> : <><path d="M19 5H8v23h17V11l-6-6Z" /><path d="M18 5v7h7M12 18h9m-9 5h6" /></>}
+          {stage === "success" ? <path d="m8 16 5 5L24 10" /> : stage === "otp" ? <><rect x="7" y="14" width="18" height="14" rx="2" /><path d="M11 14V9a5 5 0 0 1 10 0v5M16 20v3" /></> : <><path d="M19 5H8v23h17V11l-6-6Z" /><path d="M18 5v7h7M12 18h9m-9 5h6" /></>}
         </svg>
       </div>
       <h2 id="community-submission-heading" ref={dialogHeading} tabIndex={-1}>
-        {stage === "success" ? "PENGAJUAN BERHASIL!" : "KONFIRMASI DATA KOMUNITAS"}
+        {stage === "success" ? "PENGAJUAN BERHASIL!" : stage === "otp" ? "VERIFIKASI WHATSAPP" : "KONFIRMASI DATA KOMUNITAS"}
       </h2>
       <p id="community-submission-description" className="community-dialog-description">
-        {stage === "success" ? <>Terima kasih, <strong>{submission?.communityName}</strong>! Pengajuan penawaran komunitasmu berhasil dibuat dalam simulasi ini.</> : "Pastikan detail komunitasmu sudah benar sebelum mengajukan penawaran."}
+        {stage === "success" ? <>Terima kasih, <strong>{submission?.communityName}</strong>! Pengajuan penawaran komunitasmu berhasil dibuat dalam simulasi ini.</> : stage === "otp" ? "Masukkan kode OTP untuk memverifikasi nomor WhatsApp team leader dan menyelesaikan pengajuan." : "Pastikan detail komunitasmu sudah benar sebelum mengajukan penawaran."}
       </p>
-      <dl className="community-submission-details">
+      {stage === "otp" && submission ? (
+        <CommunityOtp phone={normalizePhone(submission.whatsapp)} onVerified={() => setStage("success")} />
+      ) : <dl className="community-submission-details">
         {submission && DETAIL_LABELS.map(([key, label]) => (
-          <div key={key}><dt>{label}</dt><dd>{submission[key]}</dd></div>
+          <div key={key}><dt>{label}</dt><dd>{submission[key]}{key === "whatsapp" && stage === "success" && <span className="community-phone-verified">OTP terverifikasi · Simulasi</span>}</dd></div>
         ))}
-      </dl>
+      </dl>}
       <p className="community-dialog-demo" id="community-submission-demo">Mode simulasi. Data tidak dikirim ke server.</p>
       <div className="community-dialog-actions">
         {stage === "review" ? (
@@ -267,9 +275,13 @@ export default function CommunityForm() {
               const control = form.current?.elements.namedItem("communityName");
               if (control instanceof HTMLElement) control.focus();
             }}>Ubah Data</button>
-            <button type="button" className="community-dialog-confirm" onClick={() => setStage("success")}>Konfirmasi Pengajuan</button>
+            <button type="button" className="community-dialog-confirm" onClick={() => setStage("otp")}>Konfirmasi Pengajuan</button>
           </>
-        ) : <button type="button" className="community-dialog-confirm" onClick={() => dialog.current?.close()}>Selesai</button>}
+        ) : stage === "otp" ? <button type="button" className="community-dialog-edit" onClick={() => {
+          dialog.current?.close();
+          const control = form.current?.elements.namedItem("whatsapp");
+          if (control instanceof HTMLElement) control.focus();
+        }}>Ubah Nomor WhatsApp</button> : <button type="button" className="community-dialog-confirm" onClick={() => dialog.current?.close()}>Selesai</button>}
       </div>
     </dialog>
     </>
