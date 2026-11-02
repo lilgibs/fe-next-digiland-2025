@@ -27,7 +27,7 @@ export default function Intro() {
         </div>
       </div>
 
-      <div className="mt-8.75 md:mt-6 md:px-4 lg:mt-1 lg:px-0">
+      <div className="mt-8.75 sm:px-4 md:mt-6 lg:mt-1 lg:px-0">
         <Countdown />
       </div>
     </section>

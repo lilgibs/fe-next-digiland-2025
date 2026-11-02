@@ -28,7 +28,8 @@ export default function Hero() {
             <span className="font-extrabold">Digiland</span>{" "}
             <span className="font-light">2025</span>
           </h1>
-          <div aria-hidden className="hidden items-center gap-16 lg:flex">
+          {/* xl+: below 1280 the outlined word lands off-screen and only the dash would show */}
+          <div aria-hidden className="hidden items-center gap-16 xl:flex">
             <span className="h-0.75 w-[105px] bg-white" />
             <span className="font-display text-[92px] leading-none font-extrabold text-transparent uppercase [-webkit-text-stroke:1px_#fff]">
               Digiland

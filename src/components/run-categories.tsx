@@ -24,7 +24,7 @@ export default function RunCategories() {
       </div>
 
       <div className="wrapper relative pt-44 md:pt-72 lg:pt-33">
-        <h2 className="font-display text-[30px] leading-10 font-extrabold text-[#333] uppercase sm:text-5xl sm:leading-12 md:text-[63px] md:leading-[60px]">
+        <h2 className="font-display text-[min(30px,8.4vw)] leading-10 font-extrabold text-[#333] uppercase sm:text-5xl sm:leading-12 md:text-[63px] md:leading-[60px]">
           Lari untuk
           <br />
           Kebahagiaanmu

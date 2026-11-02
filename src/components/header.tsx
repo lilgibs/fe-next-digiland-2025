@@ -77,7 +77,7 @@ export default function Header() {
           type="button"
           popoverTarget="mobile-nav"
           aria-label="Buka menu"
-          className="-mr-1 p-2 text-white lg:hidden"
+          className="-mr-2.75 grid size-11 place-items-center text-white lg:hidden"
         >
           <svg viewBox="0 0 14 12" fill="none" stroke="currentColor" strokeWidth="2.25" className="h-3 w-3.5" aria-hidden>
             <path d="M0 1.125h14M0 6h14M0 10.875h14" />
