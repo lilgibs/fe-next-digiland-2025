@@ -21,7 +21,7 @@ export default function CommunityPage() {
             <h2 id="community-form-heading" className="run-title">FORMULIR<br />KOMUNITAS</h2>
             <div className="community-registration-content">
               <p className="community-form-intro">
-                Masukan Data Komunitasmu untuk mendapatkan Penawaran spesial Event Digiland Run 2025<br />{" "}
+                Masukkan Data Komunitasmu untuk mendapatkan Penawaran spesial Event Digiland Run 2025<br />{" "}
                 Dapatkan banyak benefit dengan bergabung dalam kegiatan <strong>Road To Digiland Run 2025.</strong>
               </p>
               <CommunityForm />

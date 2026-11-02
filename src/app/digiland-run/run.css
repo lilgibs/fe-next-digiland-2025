@@ -145,10 +145,6 @@
 .run-page .run-community-dot { position: absolute; width: 34px; height: 34px; border-radius: 50%; top: 35px; left: 83px; background: linear-gradient(90deg, #ff9544, #f92685); box-shadow: 1px 1px 8px #a80c5f44; }
 .run-page .run-community-two .run-community-dot { width: 25px; height: 25px; top: 70px; left: 35px; }
 .run-page .run-community-three .run-community-dot { top: 50px; left: auto; right: 60px; width: 23px; height: 23px; }
-.run-page .run-community-sticker { display: flex; align-items: center; justify-content: center; position: absolute; right: 30%; bottom: 9px; height: 104px; width: 104px; border-radius: 50%; color: #c1c9d1; background: #eef0f2; }
-.run-page .run-community-sticker svg { width: 36px; height: 36px; }
-.run-page .run-community-two .run-community-sticker { top: 140px; bottom: auto; right: 23%; }
-.run-page .run-community-three .run-community-sticker { bottom: 40px; right: 0; }
 .run-page .run-community-cta { position: absolute; right: 0; top: 540px; max-width: 445px; text-align: right; }
 .run-page .run-community-cta p { font-size: 19px; line-height: 1.6; margin-bottom: 40px; }
 
@@ -191,7 +187,6 @@
   .run-page .run-notice { padding: 24px; gap: 25px; }
   .run-page .run-notice .run-button { min-width: 210px; }
   .run-page .run-community figcaption { width: 255px; min-height: 85px; font-size: 12px; }
-  .run-page .run-community-sticker { width: 85px; height: 85px; }
   .run-page .run-community-cta { max-width: 350px; top: 510px; }
   .run-page .run-community-collage { height: 800px; }
 }
@@ -241,22 +236,6 @@
   .run-page .run-panel-lead { font-size: 17px; }
   .run-page .run-communities { padding-top: 45px; padding-bottom: 65px; }
   .run-page .run-section-lead { font-size: 15px; margin-top: 14px; }
-  .run-page .run-community-collage { display: flex; flex-direction: column; height: auto; margin-top: 20px; }
-  .run-page .run-community { position: relative; width: 100%; max-width: 520px; top: auto; left: auto; right: auto; margin-inline: auto; flex-shrink: 0; }
-  .run-page .run-community-two { margin-top: 10px; width: 94%; }
-  .run-page .run-community-three { margin-top: 10px; width: 100%; }
-  .run-page .run-community figcaption { min-height: 65px; width: 215px; bottom: 2px; left: 0; padding: 14px 18px; font-size: 11px; }
-  .run-page .run-community-two figcaption { top: 5px; left: 70px; bottom: auto; }
-  .run-page .run-community-three figcaption { left: auto; right: 10px; bottom: -5px; }
-  .run-page .run-community-dot { width: 24px; height: 24px; left: 40px; top: 20px; }
-  .run-page .run-community-two .run-community-dot { left: 10px; top: 40px; width: 18px; height: 18px; }
-  .run-page .run-community-three .run-community-dot { right: 20px; top: 20px; width: 18px; height: 18px; }
-  .run-page .run-community-sticker { width: 65px; height: 65px; right: 20%; bottom: -6px; }
-  .run-page .run-community-sticker svg { width: 26px; height: 26px; }
-  .run-page .run-community-two .run-community-sticker { top: 60px; }
-  .run-page .run-community-three .run-community-sticker { bottom: 20px; right: 0; }
-  .run-page .run-community-cta { position: static; max-width: none; margin-top: 50px; }
-  .run-page .run-community-cta p { font-size: 16px; margin-bottom: 25px; }
   .run-page .run-dialog { padding: 50px 26px 30px; }
   .run-page .run-dialog .run-title { font-size: 28px; }
 }
@@ -328,6 +307,19 @@
   .run-page .run-notice p { font-size: clamp(16px, 4.5vw, 20px); line-height: 1.7; }
   .run-page .run-notice p br { display: none; }
   .run-page .run-notice .run-button { grid-column: 1 / -1; width: 100%; min-width: 0; min-height: 48px; font-size: 16px; }
+  /* Communities stack too: below 1024px the absolute desktop collage leaves big gaps and runs into the lead text. */
+  .run-page .run-community-collage { display: flex; flex-direction: column; height: auto; margin-top: 20px; }
+  .run-page .run-community { position: relative; width: 100%; max-width: 520px; top: auto; left: auto; right: auto; margin-inline: auto; flex-shrink: 0; }
+  .run-page .run-community-two { margin-top: 10px; width: 94%; }
+  .run-page .run-community-three { margin-top: 10px; width: 100%; }
+  .run-page .run-community figcaption { min-height: 65px; width: 215px; bottom: 2px; left: 0; padding: 14px 18px; font-size: 12px; }
+  .run-page .run-community-two figcaption { top: 5px; left: 70px; bottom: auto; }
+  .run-page .run-community-three figcaption { left: auto; right: 10px; bottom: -5px; }
+  .run-page .run-community-dot { width: 24px; height: 24px; left: 40px; top: 20px; }
+  .run-page .run-community-two .run-community-dot { left: 10px; top: 40px; width: 18px; height: 18px; }
+  .run-page .run-community-three .run-community-dot { right: 20px; top: 20px; width: 18px; height: 18px; }
+  .run-page .run-community-cta { position: static; max-width: none; margin-top: 50px; }
+  .run-page .run-community-cta p { font-size: 16px; margin-bottom: 25px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

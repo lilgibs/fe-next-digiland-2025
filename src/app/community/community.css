@@ -84,6 +84,8 @@
 @media (max-width: 1023px) {
   .community-form-page .community-registration-grid { grid-template-columns: 29% minmax(0, 1fr); gap: 28px; }
   .community-form-page .community-form-intro br { display: none; }
+  /* The 29% column is narrower than "KOMUNITAS" at 35px until ~900px */
+  .community-form-page .community-registration > .wrapper > h2 { font-size: clamp(29px, 3.8vw, 35px); }
   .community-form-page .community-field input,
   .community-form-page .community-field select { font-size: 16px; }
 }

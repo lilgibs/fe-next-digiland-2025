@@ -160,7 +160,7 @@ export default function CommunityForm() {
       <div className="community-fields">
         <div className="community-field">
           <label htmlFor="communityName">Nama Komunitas</label>
-          <input id="communityName" name="communityName" type="text" required minLength={2} maxLength={100} autoComplete="organization" placeholder="Masukan Nama Komunitas Anda" aria-invalid={Boolean(errors.communityName)} aria-describedby={errors.communityName ? "communityName-error" : undefined} />
+          <input id="communityName" name="communityName" type="text" required minLength={2} maxLength={100} autoComplete="organization" placeholder="Masukkan Nama Komunitas" aria-invalid={Boolean(errors.communityName)} aria-describedby={errors.communityName ? "communityName-error" : undefined} />
           <FieldError name="communityName" errors={errors} />
         </div>
 
@@ -178,7 +178,7 @@ export default function CommunityForm() {
           {otherCity && (
             <div className="community-other-city">
               <label htmlFor="otherCity">Nama Kota / Kabupaten</label>
-              <input id="otherCity" name="otherCity" type="text" required minLength={2} maxLength={100} autoComplete="address-level2" placeholder="Masukan Kota atau Kabupaten Anda" aria-invalid={Boolean(errors.otherCity)} aria-describedby={errors.otherCity ? "otherCity-error" : undefined} />
+              <input id="otherCity" name="otherCity" type="text" required minLength={2} maxLength={100} autoComplete="address-level2" placeholder="Masukkan Kota atau Kabupaten" aria-invalid={Boolean(errors.otherCity)} aria-describedby={errors.otherCity ? "otherCity-error" : undefined} />
               <FieldError name="otherCity" errors={errors} />
             </div>
           )}
@@ -186,13 +186,13 @@ export default function CommunityForm() {
 
         <div className="community-field">
           <label htmlFor="leaderName">Nama Team Leader</label>
-          <input id="leaderName" name="leaderName" type="text" required minLength={2} maxLength={100} autoComplete="name" placeholder="Masukan Nama Team Leader Komunitas Anda" aria-invalid={Boolean(errors.leaderName)} aria-describedby={errors.leaderName ? "leaderName-error" : undefined} />
+          <input id="leaderName" name="leaderName" type="text" required minLength={2} maxLength={100} autoComplete="name" placeholder="Masukkan Nama Team Leader" aria-invalid={Boolean(errors.leaderName)} aria-describedby={errors.leaderName ? "leaderName-error" : undefined} />
           <FieldError name="leaderName" errors={errors} />
         </div>
 
         <div className="community-field">
           <label htmlFor="instagram">Sosial Media <span>(Instagram)</span></label>
-          <input id="instagram" name="instagram" type="text" required maxLength={31} autoCapitalize="none" autoCorrect="off" spellCheck={false} placeholder="Masukan Username Instagram Komunitas Anda" aria-invalid={Boolean(errors.instagram)} aria-describedby={`instagram-hint${errors.instagram ? " instagram-error" : ""}`} />
+          <input id="instagram" name="instagram" type="text" required maxLength={31} autoCapitalize="none" autoCorrect="off" spellCheck={false} placeholder="Masukkan Username Instagram" aria-invalid={Boolean(errors.instagram)} aria-describedby={`instagram-hint${errors.instagram ? " instagram-error" : ""}`} />
           <p className="community-field-hint" id="instagram-hint"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm.8 10.5H7.2V7h1.6v4.5ZM8 5.7a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8Z" /></svg>Contoh: @Telkomrunners</p>
           <FieldError name="instagram" errors={errors} />
         </div>
@@ -211,7 +211,7 @@ export default function CommunityForm() {
 
         <div className="community-field">
           <label htmlFor="whatsapp">Nomor Handphone <span>(WhatsApp)</span></label>
-          <input id="whatsapp" name="whatsapp" type="tel" required maxLength={22} autoComplete="tel" inputMode="tel" placeholder="Masukan Nomor Handphone WhatsApp Anda" aria-invalid={Boolean(errors.whatsapp)} aria-describedby={errors.whatsapp ? "whatsapp-error" : undefined} />
+          <input id="whatsapp" name="whatsapp" type="tel" required maxLength={22} autoComplete="tel" inputMode="tel" placeholder="Masukkan Nomor WhatsApp" aria-invalid={Boolean(errors.whatsapp)} aria-describedby={errors.whatsapp ? "whatsapp-error" : undefined} />
           <FieldError name="whatsapp" errors={errors} />
         </div>
       </div>

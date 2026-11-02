@@ -110,9 +110,7 @@ function Communities() {
             <figure className={`run-community ${community.className}`} key={community.name}>
               <div className="run-community-photo"><Image src={community.image} alt={`Suasana kebersamaan komunitas lari ${community.name}`} fill sizes="(max-width: 767px) 90vw, (max-width: 1199px) 55vw, 652px" /></div>
               <span className="run-community-dot" aria-hidden="true" />
-              <figcaption><span>{community.label}<br />komunitas <strong>@{community.name}</strong> ?</span></figcaption>
-              <span className="run-community-sticker" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-1 14H5v-2l4-5 3 4 3-3 4 5v1ZM8 10a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" /></svg></span>
-            </figure>
+              <figcaption><span>{community.label}<br />komunitas <strong>@{community.name}</strong> ?</span></figcaption>            </figure>
           ))}
           <div className="run-community-cta"><p>Mau komunitas lari kamu berkolaborasi dengan Digiland?<br />Yuk, daftar sekarang!</p><RunButton href="/community">Daftar Komunitas</RunButton></div>
         </div>
