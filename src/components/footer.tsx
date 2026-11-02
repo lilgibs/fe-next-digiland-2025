@@ -38,12 +38,14 @@ export default function Footer() {
         alt="Digiland 2025"
         width={303}
         height={221}
-        className="mx-auto mt-59.5 max-md:w-62 md:mt-19.25"
+        className="mx-auto mt-49 max-md:w-62 md:mt-19.25"
       />
+
+      {/* Mobile: 196px above the logo, 192px below; the marquee caps sit ~5px into their line box, so both gaps read equal */}
 
       <div
         aria-hidden
-        className="mt-37.5 flex w-max animate-marquee font-display text-[40px] leading-none whitespace-nowrap uppercase motion-reduce:animate-none md:mt-32.25 md:text-[92px]"
+        className="mt-48 flex w-max animate-marquee font-display text-[40px] leading-none whitespace-nowrap uppercase motion-reduce:animate-none md:mt-32.25 md:text-[92px]"
         style={{ animationDuration: "90s" }}
       >
         <MarqueeHalf />
