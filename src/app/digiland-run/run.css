@@ -1,0 +1,344 @@
+.run-page {
+  --run-ink: #333;
+  --run-pink: #ae1f70;
+  color: var(--run-ink);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow: clip;
+}
+
+.run-page [id] { scroll-margin-top: 125px; }
+.run-page button, .run-page a { -webkit-tap-highlight-color: transparent; }
+.run-page button { cursor: pointer; }
+.run-page a:focus-visible, .run-page button:focus-visible, .run-page summary:focus-visible, .run-page [tabindex="0"]:focus-visible { outline: 3px solid #177b91; outline-offset: 5px; }
+.run-page .run-title { font-family: var(--font-archivo), sans-serif; font-stretch: 110%; font-size: 40px; line-height: 1.25; font-weight: 850; letter-spacing: -1.6px; }
+.run-page .run-light { font-weight: 400; }
+.run-page .run-arrow { width: 19px; height: 19px; flex-shrink: 0; transition: transform .2s; }
+.run-page .run-arrow-down { transform: rotate(180deg); }
+.run-page .run-button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 48px; padding: 10px 15px; border: 1px solid #646464; font-size: 14px; line-height: 1.4; font-weight: 500; color: var(--run-ink); text-decoration: none; background: transparent; transition: background .2s, color .2s, border-color .2s; }
+.run-page .run-button:hover { background: var(--run-ink); color: white; border-color: var(--run-ink); }
+.run-page .run-button:hover .run-arrow { transform: translate(2px, -2px); }
+.run-page .run-button:hover .run-arrow-down { transform: rotate(180deg) translate(2px, -2px); }
+.run-page .run-button-filled { background: var(--run-pink); border-color: var(--run-pink); color: white; }
+.run-page .run-button-filled:hover { background: #861653; border-color: #861653; }
+.run-page .run-button-light { border-color: #ffffffb3; color: white; }
+.run-page .run-button-light:hover { background: white; color: #78235c; border-color: white; }
+.run-page .run-eyebrow { display: block; color: var(--run-pink); font-size: 12px; font-weight: 800; letter-spacing: 2px; margin-bottom: 20px; }
+
+/* Hero uses the original 1440 × 540 brand artwork. */
+.run-page .run-hero { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: 540px; color: white; padding-top: 170px; padding-bottom: 82px; }
+.run-page .run-hero-background { z-index: -1; object-fit: cover; }
+.run-page .run-hero h1 { font-family: var(--font-archivo), sans-serif; font-stretch: 110%; font-size: 68px; line-height: .88; letter-spacing: -3px; font-weight: 850; }
+.run-page .run-hero h1 > span { display: inline-block; margin-top: 4px; }
+.run-page .run-year { font-weight: 300; letter-spacing: -4px; }
+.run-page .run-hero p { display: flex; align-items: center; flex-wrap: wrap; gap: 19px; margin-top: 22px; font-family: var(--font-archivo), sans-serif; font-size: 19px; line-height: 1.4; font-weight: 800; }
+.run-page .run-hero p span { font-size: 25px; line-height: 1; }
+
+.run-page .run-intro-and-pack { padding-top: 64px; padding-bottom: 84px; background: radial-gradient(ellipse 530px 370px at 15% 5%, #e9dce8a6, transparent); }
+.run-page .run-intro { display: grid; grid-template-columns: 28% 1fr; column-gap: 42px; }
+.run-page .run-compact-copy, .run-page .run-goers-tickets { display: none; }
+.run-page .run-intro-invitation { margin-top: 62px; font-size: 19px; line-height: 1.75; }
+.run-page .run-intro-invitation a { text-decoration: underline; text-underline-offset: 5px; }
+.run-page .run-intro-description { padding-top: 0; }
+.run-page .run-intro-description p + p { margin-top: 28px; }
+.run-page .run-race-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; margin-top: 66px; }
+.run-page .run-race-card { position: relative; min-height: 328px; isolation: isolate; overflow: hidden; color: white; }
+.run-page .run-race-hm { background: radial-gradient(ellipse at 100% 69%, #61d3d0 0, transparent 45%), linear-gradient(126deg, #91216f, #591344 72%, #5d3a65); }
+.run-page .run-race-10k { background: radial-gradient(ellipse at 30% 45%, #21bec1 0, transparent 62%), linear-gradient(155deg, #38677e, #219da9 53%, #7c1d5c 85%); }
+.run-page .run-race-5k { background: radial-gradient(ellipse at 62% 88%, #5bd3d2 0, transparent 44%), linear-gradient(120deg, #156e6e, #25a4a4 46%, #9e216d 85%); }
+.run-page .run-race-card::before { content: ""; position: absolute; z-index: -1; height: 55%; width: 140%; left: -20%; bottom: -28%; background: #aa1a6c; filter: blur(26px); opacity: .45; transform: rotate(-13deg); }
+.run-page .run-race-label { position: relative; z-index: 2; padding: 24px 28px; }
+.run-page .run-race-label h3 { font-family: var(--font-archivo), sans-serif; font-stretch: 110%; font-size: 74px; font-weight: 900; line-height: 1.1; letter-spacing: -3px; }
+.run-page .run-race-label p { font-size: 24px; line-height: 1.5; font-weight: 500; }
+.run-page .run-medal { position: absolute; width: 46%; height: 224px; right: 4%; top: -2px; }
+.run-page .run-medal img { width: 100%; height: 100%; object-fit: contain; object-position: top right; }
+.run-page .run-race-bottom { position: absolute; left: 28px; right: 28px; bottom: 34px; display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; }
+.run-page .run-race-bottom ul { list-style: none; font-size: 17px; line-height: 1.4; }
+.run-page .run-race-bottom .run-button { min-height: 36px; padding: 7px 10px; font-size: 12px; gap: 8px; white-space: nowrap; }
+.run-page .run-race-bottom .run-arrow { width: 16px; height: 16px; }
+
+.run-page .run-racepack { position: relative; isolation: isolate; min-height: 925px; padding-top: 116px; padding-bottom: 72px; }
+.run-page .run-racepack-collage { position: absolute; inset: -100px 0 0; z-index: -1; opacity: .045; mask-image: linear-gradient(transparent, black 15%, black); }
+.run-page .run-collage-image { object-fit: cover; }
+.run-page .run-racepack > .run-title { position: relative; z-index: 1; }
+.run-page .run-pack-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; margin-top: 64px; }
+.run-page .run-pack-grid figure { text-align: center; }
+.run-page .run-pack-art { height: 270px; display: flex; align-items: center; justify-content: center; }
+.run-page .run-pack-art > img { width: auto; height: auto; max-width: 100%; max-height: 240px; object-fit: contain; }
+.run-page .run-pack-art > .run-pack-bib { width: 176px; }
+.run-page .run-pack-art > .run-pack-bag { width: 165px; }
+.run-page .run-pack-grid figcaption { margin-top: 22px; font-family: var(--font-archivo), sans-serif; font-size: 23px; font-weight: 750; letter-spacing: -.6px; }
+.run-page .run-racepack-copy { margin-top: 94px; margin-left: 34%; text-align: right; }
+.run-page .run-racepack-copy p { font-size: 19px; line-height: 1.55; margin-bottom: 36px; }
+
+.run-page .run-essentials { background: #31a1ab url('/bg_content_header.png') center / cover no-repeat; color: white; padding-block: 119px 130px; }
+.run-page .run-essentials-grid { display: grid; grid-template-columns: 29% 21% 21% 21%; justify-content: space-between; gap: 20px; }
+.run-page .run-essentials-grid h3 { font-family: var(--font-archivo), sans-serif; font-size: 20px; font-weight: 750; letter-spacing: -.4px; line-height: 1.5; margin-bottom: 16px; }
+.run-page .run-essentials-grid h4 { font-size: 16px; line-height: 1.5; font-weight: 750; margin-top: 28px; margin-bottom: 4px; }
+.run-page .run-essentials-grid p { font-size: 15px; line-height: 1.8; }
+.run-page .run-raceday h4 { margin-top: 0; }
+.run-page .run-raceday > div + div { margin-top: 27px; }
+.run-page .run-notice { display: flex; align-items: center; gap: 42px; padding: 28px 40px; margin-top: 70px; background: #e9f3e9bd; backdrop-filter: blur(12px); color: #333; }
+.run-page .run-notice-icon { display: flex; align-items: center; justify-content: center; width: 37px; height: 42px; background: var(--run-pink); clip-path: polygon(50% 0, 100% 24%, 100% 76%, 50% 100%, 0 76%, 0 24%); font-size: 29px; font-weight: 500; line-height: 1; color: white; flex-shrink: 0; }
+.run-page .run-notice p { flex: 1; font-size: 17px; line-height: 1.65; }
+.run-page .run-notice .run-button { min-width: 265px; }
+
+.run-page .run-information { padding-top: 150px; padding-bottom: 90px; background: radial-gradient(ellipse 380px 250px at 9% 100%, #eadde9a1, transparent); }
+.run-page .run-tabs { display: grid; grid-template-columns: 1.45fr .8fr 1.2fr .95fr 1.35fr; gap: 12px; margin-top: 84px; margin-bottom: 60px; }
+.run-page .run-tabs button { min-height: 64px; padding: 12px 16px; border: 1px solid #707070; background: white; font-size: 14px; line-height: 1.4; transition: color .15s, border-color .15s, background .15s; }
+.run-page .run-tabs button:hover { color: var(--run-pink); background: #fcf6fa; }
+.run-page .run-tabs button[aria-selected="true"] { border: 3px solid #c1257b; color: #ba2878; font-weight: 800; }
+.run-page .run-tab-panel { outline-offset: 10px; min-height: 430px; }
+.run-page .run-tab-panel[hidden] { display: none; }
+.run-page .run-info-row { display: grid; grid-template-columns: 28% minmax(0, 1fr); gap: 42px; border-bottom: 1px solid #dedede; padding-block: 21px; font-size: 15px; line-height: 1.6; }
+.run-page .run-info-row:first-child { padding-top: 10px; padding-bottom: 30px; }
+.run-page .run-info-row h3 { font-family: var(--font-archivo), sans-serif; font-size: 19px; font-weight: 750; letter-spacing: -.5px; line-height: 1.5; }
+.run-page .run-info-row h4 { font-weight: 850; }
+.run-page .run-info-row ol { list-style: decimal; padding-left: 24px; }
+.run-page .run-info-row-body a:not(.run-button) { color: var(--run-pink); text-underline-offset: 3px; text-decoration: underline; }
+.run-page .run-info-more { margin-top: 24px; }
+.run-page .run-info-more[hidden] { display: none; }
+.run-page .run-category-terms + .run-category-terms { margin-top: 28px; }
+.run-page .run-text-button { display: inline-flex; align-items: center; gap: 12px; color: #b93888; background: transparent; border: none; margin-top: 16px; padding: 3px 8px; font-size: 14px; }
+.run-page .run-text-button:hover { color: #781447; text-decoration: underline; text-underline-offset: 4px; }
+.run-page .run-text-button svg { width: 18px; height: 18px; transition: transform .2s; }
+.run-page .run-text-button svg.is-open { transform: rotate(180deg); }
+.run-page .run-category-terms ~ .run-text-button { margin-top: 32px; }
+.run-page .run-indent { padding-left: 24px; }
+.run-page .run-load-more { margin-top: 65px; text-align: center; }
+.run-page .run-faq { padding-block: 25px; border-bottom: 1px solid #dedede; }
+.run-page .run-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; cursor: pointer; font-size: 19px; font-weight: 700; list-style: none; }
+.run-page .run-faq summary::-webkit-details-marker { display: none; }
+.run-page .run-faq summary span { color: var(--run-pink); font-size: 30px; font-weight: 400; transition: transform .2s; }
+.run-page .run-faq[open] summary span { transform: rotate(45deg); }
+.run-page .run-faq p { margin-top: 20px; max-width: 850px; }
+.run-page .run-tab-intro, .run-page .run-guide { max-width: 850px; padding-block: 20px 60px; }
+.run-page .run-tab-intro p { margin-top: 24px; }
+.run-page .run-tab-intro .run-button { margin-top: 30px; }
+.run-page .run-panel-lead { font-size: 20px; }
+.run-page .run-route-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-block: 36px; }
+.run-page .run-route-grid article { padding: 30px; background: #e9f5f3; border-top: 3px solid #2698a3; }
+.run-page .run-route-grid .run-eyebrow { margin-bottom: 10px; }
+.run-page .run-route-grid h3 { font-family: var(--font-archivo), sans-serif; font-size: 48px; font-weight: 850; }
+.run-page .run-route-grid p { font-size: 22px; font-weight: 700; }
+.run-page .run-route-grid article > span:last-child { font-size: 14px; }
+.run-page .run-route-panel > .run-button { margin-top: 25px; }
+.run-page .run-guide ol { list-style: decimal; padding-left: 24px; margin-top: 36px; }
+.run-page .run-guide li { padding-left: 8px; margin-bottom: 24px; }
+.run-page .run-guide li strong, .run-page .run-guide li span { display: block; }
+
+.run-page .run-communities { padding-top: 112px; padding-bottom: 110px; background: radial-gradient(ellipse 410px 600px at 0 21%, #e5d2e5a6, transparent), radial-gradient(ellipse 450px 500px at 100% 26%, #d7e3e9b3, transparent); }
+.run-page .run-section-lead { margin-top: 18px; font-size: 19px; }
+.run-page .run-section-lead strong { font-family: var(--font-archivo), sans-serif; font-weight: 850; }
+.run-page .run-community-collage { position: relative; height: 850px; margin-top: 25px; }
+.run-page .run-community { position: absolute; width: 57%; aspect-ratio: 652 / 453; }
+.run-page .run-community-photo { position: absolute; inset: 0; }
+.run-page .run-community-photo img { object-fit: contain; transition: transform .6s; }
+.run-page .run-community:hover .run-community-photo img { transform: scale(1.035); }
+.run-page .run-community-one { top: 0; left: -3%; }
+.run-page .run-community-two { width: 55%; aspect-ratio: 633 / 588; top: -40px; right: -5%; }
+.run-page .run-community-three { width: 56%; aspect-ratio: 631 / 419; top: 450px; left: -7%; }
+.run-page .run-community figcaption { position: absolute; bottom: 0; left: 22px; width: 280px; min-height: 102px; display: flex; align-items: center; padding: 20px; color: white; background: url('/community/Vector.png') center / 100% 100% no-repeat; font-size: 14px; line-height: 1.65; }
+.run-page .run-community figcaption strong { font-weight: 500; }
+.run-page .run-community-two figcaption { top: 60px; bottom: auto; left: 110px; }
+.run-page .run-community-three figcaption { left: auto; right: 62px; bottom: -4px; }
+.run-page .run-community-dot { position: absolute; width: 34px; height: 34px; border-radius: 50%; top: 35px; left: 83px; background: linear-gradient(90deg, #ff9544, #f92685); box-shadow: 1px 1px 8px #a80c5f44; }
+.run-page .run-community-two .run-community-dot { width: 25px; height: 25px; top: 70px; left: 35px; }
+.run-page .run-community-three .run-community-dot { top: 50px; left: auto; right: 60px; width: 23px; height: 23px; }
+.run-page .run-community-sticker { display: flex; align-items: center; justify-content: center; position: absolute; right: 30%; bottom: 9px; height: 104px; width: 104px; border-radius: 50%; color: #c1c9d1; background: #eef0f2; }
+.run-page .run-community-sticker svg { width: 36px; height: 36px; }
+.run-page .run-community-two .run-community-sticker { top: 140px; bottom: auto; right: 23%; }
+.run-page .run-community-three .run-community-sticker { bottom: 40px; right: 0; }
+.run-page .run-community-cta { position: absolute; right: 0; top: 540px; max-width: 445px; text-align: right; }
+.run-page .run-community-cta p { font-size: 19px; line-height: 1.6; margin-bottom: 40px; }
+
+
+
+.run-page .run-dialog { width: min(580px, calc(100% - 32px)); max-height: calc(100dvh - 48px); margin: auto; padding: 55px 42px 42px; border: none; color: var(--run-ink); background: white; box-shadow: 0 25px 100px #0004; }
+.run-page .run-dialog::backdrop { background: #082b39a6; backdrop-filter: blur(6px); }
+.run-page .run-dialog-close { position: absolute; top: 10px; right: 16px; width: 38px; height: 38px; font-size: 30px; line-height: 1; }
+.run-page .run-dialog .run-title { font-size: 32px; }
+.run-page .run-dialog p { margin-top: 24px; }
+.run-page .run-dialog .run-button { margin-top: 30px; }
+.run-page .run-dialog-facts { margin-top: 24px; border-top: 1px solid #dedede; }
+.run-page .run-dialog-facts > div { padding-block: 14px; border-bottom: 1px solid #dedede; display: grid; grid-template-columns: 38% 1fr; gap: 16px; font-size: 14px; }
+.run-page .run-dialog-facts dt { font-weight: 800; }
+
+/* Match the reference's desktop artwork scale and cropped medal ribbons. */
+@media (min-width: 1024px) {
+  .run-page .run-medal { width: 50%; height: 264px; top: -44px; }
+  .run-page .run-pack-art { height: 300px; }
+  .run-page .run-pack-art > img { max-height: 264px; }
+  .run-page .run-pack-art > .run-pack-bib { width: 200px; }
+  .run-page .run-pack-art > .run-pack-bag { width: 190px; }
+  .run-page .run-pack-art > .run-pack-jersey { height: 264px; }
+}
+
+
+@media (max-width: 1199px) {
+  .run-page .run-title { font-size: 35px; }
+  .run-page .run-intro, .run-page .run-info-row { grid-template-columns: 29% 1fr; gap: 28px; }
+  .run-page .run-race-cards, .run-page .run-pack-grid { gap: 28px; }
+  .run-page .run-race-card { min-height: 315px; }
+  .run-page .run-race-label { padding: 25px 20px; }
+  .run-page .run-race-label h3 { font-size: 62px; }
+  .run-page .run-race-label p { font-size: 22px; }
+  .run-page .run-race-bottom { left: 20px; right: 20px; bottom: 25px; }
+  .run-page .run-race-bottom ul { font-size: 14px; }
+  .run-page .run-race-bottom .run-button { padding-inline: 7px; gap: 4px; }
+  .run-page .run-essentials-grid { grid-template-columns: 25% 22% 24% 22%; gap: 15px; }
+  .run-page .run-essentials-grid h3 { font-size: 18px; }
+  .run-page .run-notice { padding: 24px; gap: 25px; }
+  .run-page .run-notice .run-button { min-width: 210px; }
+  .run-page .run-community figcaption { width: 255px; min-height: 85px; font-size: 12px; }
+  .run-page .run-community-sticker { width: 85px; height: 85px; }
+  .run-page .run-community-cta { max-width: 350px; top: 510px; }
+  .run-page .run-community-collage { height: 800px; }
+}
+
+@media (max-width: 767px) {
+  .run-page { font-size: 14px; }
+  .run-page [id] { scroll-margin-top: 100px; }
+  .run-page .wrapper { padding-inline: 24px; }
+  .run-page .run-title { font-size: 29px; line-height: 1.22; letter-spacing: -1px; }
+  .run-page .run-hero { min-height: 440px; padding-top: 150px; padding-bottom: 55px; }
+  .run-page .run-hero h1 { font-size: clamp(47px, 8.6vw, 64px); letter-spacing: -2px; }
+  .run-page .run-year { letter-spacing: -3px; }
+  .run-page .run-hero p { gap: 9px; margin-top: 20px; font-size: 12px; }
+  .run-page .run-hero p span { font-size: 16px; }
+  .run-page .run-essentials { padding-block: 60px; }
+  .run-page .run-essentials-grid { grid-template-columns: 1fr 1fr; gap: 32px 25px; }
+  .run-page .run-essentials-grid .run-title { grid-column: 1 / -1; }
+  .run-page .run-essentials-grid .run-title br { display: none; }
+  .run-page .run-essentials-grid h3 { font-size: 17px; margin-bottom: 12px; }
+  .run-page .run-essentials-grid h4 { font-size: 14px; margin-top: 20px; }
+  .run-page .run-essentials-grid p { font-size: 13px; }
+  .run-page .run-raceday { grid-column: 1 / -1; }
+  .run-page .run-raceday > div { display: inline-block; width: 33%; vertical-align: top; padding-right: 12px; }
+  .run-page .run-raceday h4 { margin-top: 0; }
+  .run-page .run-raceday > div + div { margin-top: 0; }
+  .run-page .run-notice { display: grid; grid-template-columns: 28px 1fr; gap: 20px; padding: 22px; margin-top: 40px; }
+  .run-page .run-notice-icon { width: 28px; height: 33px; font-size: 23px; }
+  .run-page .run-notice p { font-size: 13px; }
+  .run-page .run-notice .run-button { grid-column: 1 / -1; justify-self: start; min-width: 0; }
+  .run-page .run-information { padding-top: 65px; padding-bottom: 55px; }
+  .run-page .run-tabs { display: flex; overflow-x: auto; gap: 8px; margin-top: 35px; margin-bottom: 28px; padding: 3px 3px 12px; margin-inline: -3px; scrollbar-width: thin; scrollbar-color: #b62373 #f3edf0; }
+  .run-page .run-tabs button { flex-shrink: 0; min-height: 50px; padding-inline: 16px; font-size: 12px; }
+  .run-page .run-info-row { grid-template-columns: 1fr; gap: 12px; padding-block: 22px; font-size: 13px; }
+  .run-page .run-info-row h3 { font-size: 17px; }
+  .run-page .run-info-row:first-child { padding-bottom: 25px; }
+  .run-page .run-text-button { font-size: 12px; margin-top: 14px; padding-left: 0; }
+  .run-page .run-info-more { margin-top: 20px; }
+  .run-page .run-load-more { margin-top: 35px; }
+  .run-page .run-load-more .run-button { font-size: 12px; }
+  .run-page .run-faq summary { font-size: 16px; }
+  .run-page .run-route-grid { gap: 10px; }
+  .run-page .run-route-grid article { padding: 20px 12px; }
+  .run-page .run-route-grid .run-eyebrow { font-size: 9px; letter-spacing: 1px; }
+  .run-page .run-route-grid h3 { font-size: 36px; }
+  .run-page .run-route-grid p { font-size: 15px; }
+  .run-page .run-route-grid article > span:last-child { font-size: 11px; }
+  .run-page .run-panel-lead { font-size: 17px; }
+  .run-page .run-communities { padding-top: 45px; padding-bottom: 65px; }
+  .run-page .run-section-lead { font-size: 15px; margin-top: 14px; }
+  .run-page .run-community-collage { display: flex; flex-direction: column; height: auto; margin-top: 20px; }
+  .run-page .run-community { position: relative; width: 100%; max-width: 520px; top: auto; left: auto; right: auto; margin-inline: auto; flex-shrink: 0; }
+  .run-page .run-community-two { margin-top: 10px; width: 94%; }
+  .run-page .run-community-three { margin-top: 10px; width: 100%; }
+  .run-page .run-community figcaption { min-height: 65px; width: 215px; bottom: 2px; left: 0; padding: 14px 18px; font-size: 11px; }
+  .run-page .run-community-two figcaption { top: 5px; left: 70px; bottom: auto; }
+  .run-page .run-community-three figcaption { left: auto; right: 10px; bottom: -5px; }
+  .run-page .run-community-dot { width: 24px; height: 24px; left: 40px; top: 20px; }
+  .run-page .run-community-two .run-community-dot { left: 10px; top: 40px; width: 18px; height: 18px; }
+  .run-page .run-community-three .run-community-dot { right: 20px; top: 20px; width: 18px; height: 18px; }
+  .run-page .run-community-sticker { width: 65px; height: 65px; right: 20%; bottom: -6px; }
+  .run-page .run-community-sticker svg { width: 26px; height: 26px; }
+  .run-page .run-community-two .run-community-sticker { top: 60px; }
+  .run-page .run-community-three .run-community-sticker { bottom: 20px; right: 0; }
+  .run-page .run-community-cta { position: static; max-width: none; margin-top: 50px; }
+  .run-page .run-community-cta p { font-size: 16px; margin-bottom: 25px; }
+  .run-page .run-dialog { padding: 50px 26px 30px; }
+  .run-page .run-dialog .run-title { font-size: 28px; }
+}
+
+@media (max-width: 380px) {
+  .run-page .wrapper { padding-inline: 20px; }
+  .run-page .run-essentials-grid { gap: 28px 20px; }
+  .run-page .run-notice { padding: 18px; gap: 15px; }
+}
+
+/* The mobile and tablet reference uses a single column through the racepack. */
+@media (max-width: 1023px) {
+  .run-page .run-intro-and-pack { padding-block: 48px 64px; }
+  .run-page .run-intro-and-pack > .wrapper { max-width: 752px; padding-inline: 16px; }
+  .run-page .run-desktop-copy { display: none; }
+  .run-page .run-compact-copy { display: inline; }
+  .run-page .run-intro { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .run-page .run-intro .run-title { font-size: clamp(24px, 8vw, 40px); line-height: 1.15; letter-spacing: -1.2px; }
+  .run-page .run-intro-invitation { margin-top: 14px; font-size: clamp(18px, 4.8vw, 24px); line-height: 1.6; }
+  .run-page .run-intro-invitation br { display: none; }
+  .run-page .run-intro-invitation a { display: block; }
+  .run-page .run-intro-description { font-size: clamp(15px, 4vw, 19px); line-height: 1.8; }
+  .run-page .run-intro-description p + p { margin-top: 28px; }
+  .run-page .run-race-cards { grid-template-columns: minmax(0, 1fr); gap: 24px; margin-top: 42px; }
+  .run-page .run-race-card { container-type: inline-size; width: 100%; max-width: 640px; min-height: 0; aspect-ratio: 1.145; margin-inline: auto; }
+  .run-page .run-race-label { padding: 4.5cqw 7cqw; }
+  .run-page .run-race-label h3 { font-size: 22cqw; line-height: 1.1; letter-spacing: -.8cqw; }
+  .run-page .run-race-label p { margin-top: 2.5cqw; font-size: 6.4cqw; line-height: 1.5; font-weight: 400; letter-spacing: -.25cqw; }
+  .run-page .run-medal { top: 0; right: 6%; width: 40%; height: 73%; }
+  .run-page .run-race-bottom { left: 7%; right: 7%; bottom: 7%; gap: 3cqw; }
+  .run-page .run-race-bottom ul { font-size: 4.3cqw; line-height: 1.85; letter-spacing: -.15cqw; }
+  .run-page .run-race-bottom .run-button { min-height: 10.5cqw; padding: 2cqw 3cqw; font-size: 4cqw; gap: 3cqw; border-color: white; }
+  .run-page .run-race-bottom .run-arrow { width: 4.5cqw; height: 4.5cqw; }
+  .run-page .run-race-10k { background: radial-gradient(ellipse at 8% 66%, #49c6c9, transparent 70%), linear-gradient(150deg, #38677e, #13848b 60%, #8c2b6a); }
+  .run-page .run-race-10k::before { height: 22%; width: 120%; left: -10%; bottom: -3%; opacity: .65; filter: blur(4px); transform: rotate(-4deg); }
+  .run-page .run-goers-tickets { display: block; position: relative; z-index: 1; max-width: 640px; margin: 40px auto 0; padding: 24px; background: linear-gradient(130deg, #c4e9e9, #bfe1e3); }
+  .run-page .run-goers-tickets p { font-size: clamp(17px, 4.5vw, 24px); line-height: 1.65; }
+  .run-page .run-goers-tickets strong { font-weight: 850; }
+  .run-page .run-goers-tickets .run-button { width: 100%; min-height: 48px; margin-top: 40px; font-size: 16px; }
+  .run-page .run-goers-tickets .run-button:disabled { cursor: default; }
+  .run-page .run-goers-tickets .run-button:disabled:hover { background: var(--run-pink); border-color: var(--run-pink); }
+  .run-page .run-goers-tickets .run-button:disabled:hover .run-arrow { transform: none; }
+  .run-page .run-racepack { min-height: 0; padding-block: 64px 24px; }
+  .run-page .run-racepack > .run-title { font-size: clamp(25px, 8vw, 40px); line-height: 1.75; letter-spacing: -1px; }
+  .run-page .run-racepack-collage { inset: -260px -16px 120px; opacity: .045; }
+  .run-page .run-pack-grid { grid-template-columns: minmax(0, 1fr); gap: 60px; margin-top: 40px; }
+  .run-page .run-pack-art { height: auto; }
+  .run-page .run-pack-art > img { max-height: none; max-width: 76%; }
+  .run-page .run-pack-art > .run-pack-bib { width: 220px; }
+  .run-page .run-pack-art > .run-pack-bag { width: 240px; }
+  .run-page .run-pack-art > .run-pack-jersey { width: 280px; }
+  .run-page .run-pack-grid figcaption { margin-top: 22px; font-size: 24px; letter-spacing: -.6px; }
+  .run-page .run-racepack-copy { margin: 44px 0 0; text-align: right; }
+  .run-page .run-racepack-copy p { font-size: clamp(15px, 4vw, 19px); line-height: 1.8; margin-bottom: 36px; }
+  .run-page .run-essentials { padding-block: 40px 80px; background-image: linear-gradient(180deg, transparent 30%, #e3efd4cc), url('/bg_content_header.png'); }
+  .run-page .run-essentials > .wrapper { max-width: 752px; padding-inline: 16px; }
+  .run-page .run-essentials-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .run-page .run-essentials-grid .run-title { grid-column: auto; margin-bottom: 16px; font-size: clamp(27px, 8vw, 40px); line-height: 1.25; letter-spacing: -1.1px; }
+  .run-page .run-essentials-grid .run-title br { display: none; }
+  .run-page .run-essentials-grid h3 { font-size: clamp(22px, 6.1vw, 30px); line-height: 1.3; margin-bottom: 16px; }
+  .run-page .run-essentials-grid h4 { font-size: clamp(15px, 4vw, 19px); line-height: 1.6; margin-block: 24px 2px; }
+  .run-page .run-essentials-grid p { font-size: clamp(15px, 4vw, 19px); line-height: 1.6; }
+  .run-page .run-raceday { grid-column: auto; margin-top: 44px; }
+  .run-page .run-raceday > div { display: block; width: auto; padding: 0; }
+  .run-page .run-raceday h4 { margin-top: 0; }
+  .run-page .run-raceday > div + div { margin-top: 28px; }
+  .run-page .run-notice { display: grid; grid-template-columns: 38px minmax(0, 1fr); align-items: start; gap: 24px 16px; padding: 20px 16px 16px; margin-top: 64px; }
+  .run-page .run-notice-icon { width: 38px; height: 42px; margin-top: 2px; font-size: 29px; }
+  .run-page .run-notice p { font-size: clamp(16px, 4.5vw, 20px); line-height: 1.7; }
+  .run-page .run-notice p br { display: none; }
+  .run-page .run-notice .run-button { grid-column: 1 / -1; width: 100%; min-width: 0; min-height: 48px; font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .run-page *, .run-page *::before, .run-page *::after { transition: none !important; animation: none !important; }
+}
+
+@media print {
+  body:has(.run-page) > header { display: none !important; }
+  body:has(.run-information) > footer { display: none !important; }
+  .run-page > :not(.run-information) { display: none !important; }
+  .run-page .run-information { padding: 0; background: white; }
+  .run-page .run-tabs, .run-page .run-button { display: none; }
+  .run-page .run-tab-panel { padding-top: 25px; min-height: 0; }
+}

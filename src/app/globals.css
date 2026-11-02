@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Saved reference HTML of the live site: its classes point at assets we don't have */
+@source not "../../.digiland-source.html";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  --color-brand: #aa216a;
+
+  --animate-marquee: marquee 60s linear infinite;
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Extended display face: headings, section titles */
+@utility font-display {
+  font-family: var(--font-archivo);
+  font-stretch: 110%;
+}
+
+/* Fixed header darkens as the page scrolls past the hero, so white nav stays readable over light sections.
+   ponytail: scroll-driven CSS only; browsers without scroll timelines keep the translucent bar */
+@utility header-scroll {
+  @supports (animation-timeline: scroll()) {
+    animation: header-solid linear both;
+    animation-timeline: scroll();
+    animation-range: 0 600px;
+  }
+}
+
+@keyframes header-solid {
+  to {
+    background-color: rgb(20 8 16 / 0.9);
+  }
+}
+
+/* 1152px content column + 16px mobile gutter */
+@utility wrapper {
+  width: 100%;
+  max-width: calc(1152px + 2rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
 }
