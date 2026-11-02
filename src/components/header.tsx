@@ -9,10 +9,8 @@ import { TICKET_URL } from "@/lib/site";
 
 const NAV = [
   { href: "/", label: "Beranda" },
-  { href: "/tentang", label: "Tentang" },
   { href: "/digiland-run", label: "Digiland Run" },
-  { href: "/pasar-rakyat", label: "Pasar Rakyat" },
-  { href: "/galeri", label: "Galeri" },
+  { href: "/community", label: "Komunitas" },
 ];
 
 function Actions() {
