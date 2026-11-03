@@ -37,7 +37,7 @@ export default function Articles() {
     <section className="bg-white bg-[radial-gradient(380px_320px_at_5%_200px,#d3d9e0,transparent)] pt-11 pb-20 md:pt-32 md:pb-37">
       {/* md+: button sits beside the heading; mobile: it moves below the cards (order-last) */}
       <div className="wrapper grid items-end gap-x-4 md:grid-cols-[1fr_auto]">
-        <h2 className="w-min font-display text-[38px] leading-9 font-extrabold text-black uppercase md:w-auto md:text-[40px] md:leading-none md:text-[#333]">
+        <h2 className="w-min font-display text-[38px] leading-9 font-extrabold text-black uppercase md:w-auto md:text-[40px] md:leading-none md:text-ink">
           Artikel Terbaru
         </h2>
         <div className="max-md:order-last max-md:mt-10 max-md:justify-self-end">

@@ -17,7 +17,7 @@ export default function Intro() {
           <h2>
             <Image src="/elevating_your_joy.png" alt="Elevating Your Joy" width={325} height={63} className="max-md:w-64" />
           </h2>
-          <p className="mt-6.75 text-base leading-6 text-[#333] md:mt-4 md:leading-[2.1]">
+          <p className="mt-6.75 text-base leading-6 text-ink md:mt-4 md:leading-[2.1]">
             Menghadirkan Digiland sebagai pengalaman yang imersif, interaktif, dengan didorong oleh
             inovasi, yang menyajikan kebahagiaan, mempererat hubungan, serta menyebarkan energi
             positif yang berkelanjutan melalui teknologi, hiburan, pemberdayaan, dan komunitas,

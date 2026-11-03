@@ -58,7 +58,7 @@ export default function Header() {
   });
 
   return (
-    <header className="header-scroll fixed inset-x-0 top-0 z-50 bg-black/35 backdrop-blur-xl">
+    <header className="header-scroll fixed inset-x-0 top-0 z-50 print:hidden bg-black/35 backdrop-blur-xl">
       <div className="wrapper flex h-14 items-center justify-between lg:h-25.5">
         <Link href="/" aria-label="Digiland 2025, ke beranda">
           {/* Mobile shows the DGLD mark only; desktop the full lockup */}

@@ -24,7 +24,7 @@ export default function RunCategories() {
       </div>
 
       <div className="wrapper relative pt-44 md:pt-72 lg:pt-33">
-        <h2 className="font-display text-[min(30px,8.4vw)] leading-10 font-extrabold text-[#333] uppercase sm:text-5xl sm:leading-12 md:text-[63px] md:leading-[60px]">
+        <h2 className="font-display text-[min(30px,8.4vw)] leading-10 font-extrabold text-ink uppercase sm:text-5xl sm:leading-12 md:text-[63px] md:leading-[60px]">
           Lari untuk
           <br />
           Kebahagiaanmu
@@ -44,7 +44,7 @@ export default function RunCategories() {
                   </span>
                 </p>
               </div>
-              <p className="mt-2 w-[94%] text-center font-display text-[21px] leading-tight font-semibold text-[#333] md:hidden">
+              <p className="mt-2 w-[94%] text-center font-display text-[21px] leading-tight font-semibold text-ink md:hidden">
                 {price}
               </p>
             </li>
@@ -55,7 +55,7 @@ export default function RunCategories() {
           Daftar Digiland dan dapatkan *Free Kuota 15Gb* khusus pelanggan Telkomsel
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-7 md:mt-6">
-          <p className="max-w-111 leading-[1.55] text-[#333] md:leading-[1.7]">
+          <p className="max-w-111 leading-[1.55] text-ink md:leading-[1.7]">
             Bersiaplah untuk Digiland Run, bagian spesial dari Digiland 2025 yang mengajak runner
             enthusiast, komunitas lari, dan masyarakat untuk berlari dengan penuh semangat dalam
             pilihan kategori 5K<span className="md:hidden"> (Fun Run)</span>, 10K

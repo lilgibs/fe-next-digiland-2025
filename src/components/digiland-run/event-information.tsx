@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, type KeyboardEvent, type ReactNode } from "react";
-import { ArrowIcon } from "./run-button";
+import { ArrowIcon, EYEBROW, GUTTER, TITLE, runButton } from "./run-ui";
 
 const TABS = ["Syarat & Ketentuan", "FAQ", "Hadiah Lomba", "Rute Lari", "Race Guide"];
 const CATEGORIES = [
@@ -10,26 +10,33 @@ const CATEGORIES = [
   { name: "21K atau Half Marathon (HM)", distance: "21 kilometer", age: "17", time: "05.00 WIB" },
 ];
 
-function InfoRow({ title, children, more, initiallyOpen = false }: {
+function InfoRow({ title, children, more, initiallyOpen = false, toggleClassName = "mt-4 max-md:mt-3.5" }: {
   title: string;
   children: ReactNode;
   more?: ReactNode;
   initiallyOpen?: boolean;
+  toggleClassName?: string;
 }) {
   const [open, setOpen] = useState(initiallyOpen);
   const id = `run-info-${title.toLowerCase().replace(/[^a-z0-9]/g, "-")}`;
 
   return (
-    <div className="run-info-row">
-      <h3>{title}</h3>
-      <div className="run-info-row-body">
+    <div className="grid grid-cols-[28%_minmax(0,1fr)] gap-10.5 border-b border-[#dedede] py-5.25 text-[15px] leading-[1.6] first:pt-2.5 first:pb-7.5 max-xl:grid-cols-[29%_1fr] max-xl:gap-7 max-md:grid-cols-1 max-md:gap-3 max-md:py-5.5 max-md:text-[13px] max-md:first:pb-6.25 [&_h4]:font-extrabold [&_ol]:list-decimal [&_ol]:pl-6">
+      <h3 className="font-archivo text-[19px] leading-[1.5] font-[750] tracking-[-.5px] max-md:text-[17px]">{title}</h3>
+      <div>
         {children}
         {more && (
           <>
-            <div id={id} hidden={!open} className="run-info-more">{more}</div>
-            <button type="button" className="run-text-button" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>
+            <div id={id} hidden={!open} className="mt-6 max-md:mt-5">{more}</div>
+            <button
+              type="button"
+              className={`inline-flex items-center gap-3 px-2 py-0.75 text-[14px] text-[#b93888] hover:text-[#781447] hover:underline hover:underline-offset-4 max-md:pl-0 max-md:text-[12px] ${toggleClassName}`}
+              aria-expanded={open}
+              aria-controls={id}
+              onClick={() => setOpen(!open)}
+            >
               {open ? "Lebih Sedikit" : "Baca Lebih Lengkap"}
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true" className={open ? "is-open" : ""}><path d="m3 6 5 5 5-5" /></svg>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true" className={`size-4.5 transition-transform duration-200 motion-reduce:transition-none ${open ? "rotate-180" : ""}`}><path d="m3 6 5 5 5-5" /></svg>
             </button>
           </>
         )}
@@ -38,9 +45,9 @@ function InfoRow({ title, children, more, initiallyOpen = false }: {
   );
 }
 
-function CategoryText({ category }: { category: typeof CATEGORIES[number] }) {
+function CategoryText({ category, className = "" }: { category: typeof CATEGORIES[number]; className?: string }) {
   return (
-    <div className="run-category-terms">
+    <div className={className}>
       <h4>{category.name}</h4>
       <p>Lomba lari jalan raya berjarak {category.distance}, dengan peserta adalah warga negara Indonesia dan warga negara asing yang memiliki KITAS, putra dan putri dengan batasan usia {category.age} tahun sampai dengan 80 tahun. Dalam kategori ini yang berhak untuk menjadi pemenang adalah warga negara Indonesia (dibuktikan dengan memiliki KTP / Kartu Pelajar asli Indonesia yang didaftarkan pada saat melakukan pendaftaran lomba) dan dibuktikan dengan menunjukkan dokumen asli (bukan foto copy / digital file) pada saat dilakukan verifikasi pemenang.</p>
     </div>
@@ -65,7 +72,12 @@ function Terms() {
       <InfoRow title="Tempat Kegiatan dan Rute">
         <p>Tempat acara : Plaza Barat, Gelora Bung Karno Jakarta<br />Rute Lari &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: Plaza Barat, Gelora Bung Karno Jakarta (detail rute lari akan diinformasikan kemudian)</p>
       </InfoRow>
-      <InfoRow title="Kategori Lari" initiallyOpen more={<>{CATEGORIES.slice(1).map((category) => <CategoryText key={category.name} category={category} />)}</>}>
+      <InfoRow
+        title="Kategori Lari"
+        initiallyOpen
+        toggleClassName="mt-8"
+        more={<>{CATEGORIES.slice(1).map((category, i) => <CategoryText key={category.name} category={category} className={i > 0 ? "mt-7" : ""} />)}</>}
+      >
         <CategoryText category={CATEGORIES[0]} />
       </InfoRow>
       <InfoRow title="Perlengkapan Lomba" more={<p>Peserta juga mendapatkan goodie bag. Medali finisher diberikan kepada peserta yang menyelesaikan perlombaan sesuai kategori yang diikuti.</p>}>
@@ -76,17 +88,17 @@ function Terms() {
       </InfoRow>
       <InfoRow title="Layanan" more={<p>Peserta dapat menghubungi petugas di area lomba apabila membutuhkan bantuan. Air mineral, minuman isotonik, dan buah disediakan sebagai refreshment peserta.</p>}>
         <h4>1. Layanan Medis</h4>
-        <p className="run-indent">Panitia penyelenggara menyiapkan beberapa pelayanan medis terdiri dari dokter dan staf perawat untuk pertolongan pertama, dilengkapi dengan fasilitas ambulance dan peralatan medis.</p>
+        <p className="pl-6">Panitia penyelenggara menyiapkan beberapa pelayanan medis terdiri dari dokter dan staf perawat untuk pertolongan pertama, dilengkapi dengan fasilitas ambulance dan peralatan medis.</p>
       </InfoRow>
       <InfoRow title="Informasi Pengambilan Racepack">
         <p>Istora Senayan, Jakarta Pusat.<br />15–17 Mei 2025. Bawa identitas dan bukti konfirmasi pendaftaran.</p>
       </InfoRow>
       <div id="run-additional-terms" hidden={!allTerms}>
         <InfoRow title="Nomor BIB"><p>Kenakan nomor BIB sesuai data pendaftaran selama mengikuti perlombaan agar petugas dapat mengidentifikasi peserta dan kategori lari.</p></InfoRow>
-        <InfoRow title="Informasi Penyelenggara"><p>Ikuti pengumuman dan pembaruan informasi acara melalui akun resmi <a href="https://www.instagram.com/digilandid/" target="_blank" rel="noopener noreferrer">@digilandid</a>.</p></InfoRow>
+        <InfoRow title="Informasi Penyelenggara"><p>Ikuti pengumuman dan pembaruan informasi acara melalui akun resmi <a className="text-brand underline underline-offset-3" href="https://www.instagram.com/digilandid/" target="_blank" rel="noopener noreferrer">@digilandid</a>.</p></InfoRow>
       </div>
-      <div className="run-load-more">
-        <button type="button" className="run-button" aria-expanded={allTerms} aria-controls="run-additional-terms" onClick={() => setAllTerms(!allTerms)}>
+      <div className="mt-16.25 text-center max-md:mt-8.75">
+        <button type="button" className={`${runButton()} max-md:text-[12px]`} aria-expanded={allTerms} aria-controls="run-additional-terms" onClick={() => setAllTerms(!allTerms)}>
           {allTerms ? "Tampilkan Lebih Sedikit" : "Muat Lebih banyak Syarat & Ketentuan"}<ArrowIcon down={!allTerms} />
         </button>
       </div>
@@ -102,6 +114,8 @@ const FAQS = [
   { q: "Apa yang perlu dibawa saat mengambil racepack?", a: "Siapkan identitas asli yang digunakan saat pendaftaran dan bukti konfirmasi pendaftaran. Pantau akun resmi @digilandid untuk informasi terbaru." },
   { q: "Di mana saya bisa mendapatkan tiket?", a: "Tiket Digiland tersedia melalui MyTelkomsel. Gunakan tombol Beli Tiket untuk menuju bagian informasi tiket." },
 ];
+
+const PANEL = "max-w-212.5 pt-5 pb-15";
 
 export default function EventInformation() {
   const [active, setActive] = useState(0);
@@ -120,23 +134,91 @@ export default function EventInformation() {
   }
 
   return (
-    <section id="informasi-acara" className="run-information" aria-labelledby="run-information-heading">
-      <div className="wrapper">
-        <h2 id="run-information-heading" className="run-title">INFORMASI ACARA</h2>
-        <div className="run-tabs" role="tablist" aria-label="Informasi Digiland Run">
+    <section
+      id="informasi-acara"
+      className="bg-[radial-gradient(ellipse_380px_250px_at_9%_100%,#eadde9a1,transparent)] pt-37.5 pb-22.5 max-md:pt-16.25 max-md:pb-13.75 print:bg-none print:p-0"
+      aria-labelledby="run-information-heading"
+    >
+      <div className={`wrapper ${GUTTER}`}>
+        <h2 id="run-information-heading" className={TITLE}>INFORMASI ACARA</h2>
+        <div
+          className="mt-21 mb-15 grid grid-cols-[1.45fr_.8fr_1.2fr_.95fr_1.35fr] gap-3 max-md:-mx-0.75 max-md:mt-8.75 max-md:mb-7 max-md:flex max-md:gap-2 max-md:overflow-x-auto max-md:px-0.75 max-md:pt-0.75 max-md:pb-3 max-md:[scrollbar-color:#b62373_#f3edf0] max-md:[scrollbar-width:thin] print:hidden"
+          role="tablist"
+          aria-label="Informasi Digiland Run"
+        >
           {TABS.map((tab, index) => (
-            <button key={tab} type="button" role="tab" id={`run-tab-${index}`} aria-selected={active === index} aria-controls={`run-panel-${index}`} tabIndex={active === index ? 0 : -1} ref={(element) => { buttons.current[index] = element; }} onClick={() => setActive(index)} onKeyDown={(event) => handleKey(event, index)}>
+            <button
+              key={tab}
+              type="button"
+              role="tab"
+              id={`run-tab-${index}`}
+              aria-selected={active === index}
+              aria-controls={`run-panel-${index}`}
+              tabIndex={active === index ? 0 : -1}
+              ref={(element) => { buttons.current[index] = element; }}
+              onClick={() => setActive(index)}
+              onKeyDown={(event) => handleKey(event, index)}
+              className="min-h-16 border border-[#707070] bg-white px-4 py-3 text-[14px] leading-[1.4] transition-colors duration-150 hover:bg-[#fcf6fa] hover:text-brand aria-selected:border-3 aria-selected:border-[#c1257b] aria-selected:font-extrabold aria-selected:text-[#ba2878] max-md:min-h-12.5 max-md:shrink-0 max-md:text-[12px] motion-reduce:transition-none"
+            >
               {tab}
             </button>
           ))}
         </div>
         {TABS.map((tab, index) => (
-          <div key={tab} role="tabpanel" id={`run-panel-${index}`} aria-labelledby={`run-tab-${index}`} hidden={active !== index} tabIndex={0} className="run-tab-panel">
+          <div key={tab} role="tabpanel" id={`run-panel-${index}`} aria-labelledby={`run-tab-${index}`} hidden={active !== index} tabIndex={0} className="min-h-107.5 outline-offset-10 print:min-h-0 print:pt-6.25">
             {index === 0 && <Terms />}
-            {index === 1 && <div className="run-faq-list">{FAQS.map(({ q, a }) => <details key={q} className="run-faq"><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div>}
-            {index === 2 && <div className="run-tab-intro"><span className="run-eyebrow">EVERY FINISH IS A WIN</span><h3 className="run-title">RAYAKAN PENCAPAIANMU.</h3><p>Medali finisher menantimu di garis akhir untuk setiap kategori: 5K, 10K, dan Half Marathon.</p><p>Informasi hadiah dan ketentuan pemenang akan diumumkan melalui kanal resmi Digiland.</p><a className="run-button" href="https://www.instagram.com/digilandid/" target="_blank" rel="noopener noreferrer">Ikuti Informasi Terbaru<ArrowIcon /></a></div>}
-            {index === 3 && <div className="run-route-panel"><p className="run-panel-lead">Mulai langkahmu dari Plaza Barat, Gelora Bung Karno, Jakarta.</p><div className="run-route-grid">{CATEGORIES.map((category) => <article key={category.name}><span className="run-eyebrow">FLAG OFF</span><h3>{category.name === "21K atau Half Marathon (HM)" ? "HM" : category.name}</h3><p>{category.time}</p><span>Plaza Barat GBK</span></article>)}</div><p>Detail rute lari akan diinformasikan kemudian melalui kanal resmi Digiland.</p><a className="run-button" href="https://www.google.com/maps/search/?api=1&query=Plaza+Barat+GBK+Jakarta" target="_blank" rel="noopener noreferrer">Lihat Area Start<ArrowIcon /></a></div>}
-            {index === 4 && <div className="run-guide"><span className="run-eyebrow">YOUR START-LINE CHECKLIST</span><h3 className="run-title">SIAP UNTUK HARI LARI?</h3><ol><li><strong>Ambil racepack.</strong><span>15–17 Mei 2025 di Istora Senayan. Siapkan identitas dan konfirmasi pendaftaran.</span></li><li><strong>Siapkan perlengkapan.</strong><span>Jersey, nomor BIB, sepatu lari, dan perlengkapan pribadimu.</span></li><li><strong>Kenali waktu start.</strong><span>HM 05.00 WIB · 10K 05.30 WIB · 5K 05.45 WIB, Plaza Barat GBK.</span></li><li><strong>Nikmati setiap langkah.</strong><span>Ikuti arahan petugas dan hubungi tim medis apabila membutuhkan bantuan.</span></li></ol><button type="button" className="run-button" onClick={() => window.print()}>Cetak Panduan<ArrowIcon /></button></div>}
+            {index === 1 && (
+              <div>
+                {FAQS.map(({ q, a }) => (
+                  <details key={q} className="group border-b border-[#dedede] py-6.25">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-[19px] font-bold max-md:text-[16px] [&::-webkit-details-marker]:hidden">
+                      {q}
+                      <span aria-hidden="true" className="text-[30px] font-normal text-brand transition-transform duration-200 group-open:rotate-45 motion-reduce:transition-none">+</span>
+                    </summary>
+                    <p className="mt-5 max-w-212.5">{a}</p>
+                  </details>
+                ))}
+              </div>
+            )}
+            {index === 2 && (
+              <div className={PANEL}>
+                <span className={`${EYEBROW} mb-5`}>EVERY FINISH IS A WIN</span>
+                <h3 className={TITLE}>RAYAKAN PENCAPAIANMU.</h3>
+                <p className="mt-6">Medali finisher menantimu di garis akhir untuk setiap kategori: 5K, 10K, dan Half Marathon.</p>
+                <p className="mt-6">Informasi hadiah dan ketentuan pemenang akan diumumkan melalui kanal resmi Digiland.</p>
+                <a className={`${runButton()} mt-7.5`} href="https://www.instagram.com/digilandid/" target="_blank" rel="noopener noreferrer">Ikuti Informasi Terbaru<ArrowIcon /></a>
+              </div>
+            )}
+            {index === 3 && (
+              <div>
+                <p className="text-[20px] max-md:text-[17px]">Mulai langkahmu dari Plaza Barat, Gelora Bung Karno, Jakarta.</p>
+                <div className="my-9 grid grid-cols-[repeat(3,1fr)] gap-6 max-md:gap-2.5">
+                  {CATEGORIES.map((category) => (
+                    <article key={category.name} className="border-t-3 border-[#2698a3] bg-[#e9f5f3] p-7.5 max-md:px-3 max-md:py-5">
+                      <span className={`${EYEBROW} mb-2.5 max-md:text-[9px] max-md:tracking-[1px]`}>FLAG OFF</span>
+                      <h3 className="font-archivo text-[48px] font-[850] max-md:text-[36px]">{category.name === "21K atau Half Marathon (HM)" ? "HM" : category.name}</h3>
+                      <p className="text-[22px] font-bold max-md:text-[15px]">{category.time}</p>
+                      <span className="text-[14px] max-md:text-[11px]">Plaza Barat GBK</span>
+                    </article>
+                  ))}
+                </div>
+                <p>Detail rute lari akan diinformasikan kemudian melalui kanal resmi Digiland.</p>
+                <a className={`${runButton()} mt-6.25`} href="https://www.google.com/maps/search/?api=1&query=Plaza+Barat+GBK+Jakarta" target="_blank" rel="noopener noreferrer">Lihat Area Start<ArrowIcon /></a>
+              </div>
+            )}
+            {index === 4 && (
+              <div className={PANEL}>
+                <span className={`${EYEBROW} mb-5`}>YOUR START-LINE CHECKLIST</span>
+                <h3 className={TITLE}>SIAP UNTUK HARI LARI?</h3>
+                <ol className="mt-9 list-decimal pl-6 [&_li]:mb-6 [&_li]:pl-2 [&_span]:block [&_strong]:block">
+                  <li><strong>Ambil racepack.</strong><span>15–17 Mei 2025 di Istora Senayan. Siapkan identitas dan konfirmasi pendaftaran.</span></li>
+                  <li><strong>Siapkan perlengkapan.</strong><span>Jersey, nomor BIB, sepatu lari, dan perlengkapan pribadimu.</span></li>
+                  <li><strong>Kenali waktu start.</strong><span>HM 05.00 WIB · 10K 05.30 WIB · 5K 05.45 WIB, Plaza Barat GBK.</span></li>
+                  <li><strong>Nikmati setiap langkah.</strong><span>Ikuti arahan petugas dan hubungi tim medis apabila membutuhkan bantuan.</span></li>
+                </ol>
+                <button type="button" className={runButton()} onClick={() => window.print()}>Cetak Panduan<ArrowIcon /></button>
+              </div>
+            )}
           </div>
         ))}
       </div>

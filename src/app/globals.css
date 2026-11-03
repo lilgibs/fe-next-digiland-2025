@@ -9,6 +9,7 @@
 
 @theme {
   --color-brand: #aa216a;
+  --color-ink: #333;
 
   --animate-marquee: marquee 60s linear infinite;
   @keyframes marquee {
@@ -22,6 +23,32 @@
 @utility font-display {
   font-family: var(--font-archivo);
   font-stretch: 110%;
+}
+
+/* Archivo at normal width: labels and small headings */
+@utility font-archivo {
+  font-family: var(--font-archivo);
+}
+
+@layer base {
+  /* The header is fixed, so in-page anchors stop below it */
+  [id] {
+    scroll-margin-top: 125px;
+    @media (width < 48rem) {
+      scroll-margin-top: 100px;
+    }
+  }
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+  :is(a, button, summary, [tabindex="0"]):focus-visible {
+    outline: 3px solid #177b91;
+    outline-offset: 5px;
+  }
 }
 
 /* Fixed header darkens as the page scrolls past the hero, so white nav stays readable over light sections.

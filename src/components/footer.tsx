@@ -25,7 +25,7 @@ function MarqueeHalf() {
 
 export default function Footer() {
   return (
-    <footer className="relative isolate overflow-hidden pt-10 pb-9 text-white md:pt-14">
+    <footer className="relative isolate overflow-hidden print:hidden pt-10 pb-9 text-white md:pt-14">
       <Image src="/hero_gradasi.png" alt="" fill sizes="100vw" className="-z-10 object-cover" />
 
       <div className="wrapper flex items-start justify-between gap-6">

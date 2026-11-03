@@ -21,7 +21,7 @@ export default function ArrowLink({
   return (
     <Link
       href={href}
-      className={`inline-flex h-12 shrink-0 items-center gap-4 border border-[#333] text-[#333] transition-colors hover:bg-[#333] hover:text-white ${
+      className={`inline-flex h-12 shrink-0 items-center gap-4 border border-ink text-ink transition-colors hover:bg-ink hover:text-white ${
         icon === "right" ? "px-13 text-base" : "pr-5 pl-4 text-[15px]"
       }`}
     >

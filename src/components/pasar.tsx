@@ -103,7 +103,7 @@ export default function Pasar() {
         </div>
 
         {/* Mobile width keeps the text clear of the first tile column (32.3vw + 8px gap + 16px inset) */}
-        <div className="flex flex-col text-[#333] max-md:absolute max-md:top-[60.8vw] max-md:right-4 max-md:max-w-[min(13.75rem,calc(67.7vw-24px))] max-[359px]:text-sm max-md:items-end max-md:text-right max-md:leading-6 md:mt-10 md:items-start md:text-xl md:leading-[1.4] lg:absolute lg:top-169.25 lg:right-4 lg:mt-0 lg:max-w-97.5 lg:items-end lg:text-right">
+        <div className="flex flex-col text-ink max-md:absolute max-md:top-[60.8vw] max-md:right-4 max-md:max-w-[min(13.75rem,calc(67.7vw-24px))] max-[359px]:text-sm max-md:items-end max-md:text-right max-md:leading-6 md:mt-10 md:items-start md:text-xl md:leading-[1.4] lg:absolute lg:top-169.25 lg:right-4 lg:mt-0 lg:max-w-97.5 lg:items-end lg:text-right">
           <div className="space-y-5 md:space-y-7">
             <p>
               Nikmati jajanan <strong>#PasarRakyatDigiland</strong> di acara <strong>#DIGILAND 2025</strong>.

@@ -14,7 +14,7 @@ export default function Sponsors({ title = "Sponsor dan Partner" }: { title?: st
   return (
     <section className="overflow-hidden bg-white py-16 md:pt-30.5 md:pb-42">
       <div className="wrapper">
-        <h2 className="font-display text-[28px] leading-none font-extrabold text-[#333] uppercase md:text-[40px]">
+        <h2 className="font-display text-[28px] leading-none font-extrabold text-ink uppercase md:text-[40px]">
           {title}
         </h2>
       </div>
